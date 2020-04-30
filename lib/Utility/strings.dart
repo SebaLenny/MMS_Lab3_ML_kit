@@ -12,6 +12,7 @@ class Strings {
   static String get recognizeText => 'Recognize Text';
   static String get recognizeObjects => 'Recognize Objects';
   static String get mainHint => 'Take or pick the image :)';
-  static String get photoHint => 'Take or pick the image :)';
-  static String get galleryHint => 'Take or pick the image :)';
+  static String get photoHint => 'Take a picture';
+  static String get galleryHint => 'Choose picture form gallery';
+  static String get coppiedToClipBoard => 'Coppied to clipboard!';
 }

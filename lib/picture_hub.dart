@@ -2,14 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:ml_kit/Utility/dimens.dart';
 import 'package:ml_kit/Utility/strings.dart';
 import 'package:ml_kit/ml_service.dart';
+import 'package:ml_kit/picture_text.dart';
 
 import 'image_service.dart';
 
-class PictureHub extends StatelessWidget {
+class PictureHub extends StatefulWidget {
   final ImageService imageService;
   final MlService mlService;
 
   PictureHub(this.imageService, this.mlService);
+
+  @override
+  _PictureHubState createState() => _PictureHubState();
+}
+
+class _PictureHubState extends State<PictureHub> {
+  void goToTextHub() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) =>
+            PictureText(widget.imageService, widget.mlService),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +47,7 @@ class PictureHub extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius:
                         BorderRadius.circular(Dimens.standardDistance),
-                    child: Image.file(imageService.imageFile),
+                    child: Image.file(widget.imageService.imageFile),
                   ),
                 ),
                 flex: 4,
@@ -46,7 +62,9 @@ class PictureHub extends StatelessWidget {
                       borderRadius:
                           BorderRadius.circular(Dimens.standardDistance),
                       child: RaisedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          goToTextHub();
+                        },
                         child: Text(
                           Strings.recognizeText,
                           style: TextStyle(
