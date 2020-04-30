@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ml_kit/Utility/dimens.dart';
+import 'package:ml_kit/Utility/strings.dart';
 import 'package:ml_kit/ml_service.dart';
 
 import 'image_service.dart';
@@ -14,7 +15,7 @@ class PictureHub extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pick the ML action'),
+        title: Text(Strings.photoHubTitle),
       ),
       body: SizedBox.expand(
         child: Container(
@@ -47,7 +48,7 @@ class PictureHub extends StatelessWidget {
                       child: RaisedButton(
                         onPressed: () {},
                         child: Text(
-                          'Recognise Text',
+                          Strings.recognizeText,
                           style: TextStyle(
                             fontSize: Dimens.fontPrimary,
                           ),
@@ -66,7 +67,7 @@ class PictureHub extends StatelessWidget {
                       child: RaisedButton(
                         onPressed: () {},
                         child: Text(
-                          'Recognise objects',
+                          Strings.recognizeObjects,
                           style: TextStyle(
                             fontSize: Dimens.fontPrimary,
                           ),

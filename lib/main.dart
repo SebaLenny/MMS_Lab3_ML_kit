@@ -29,7 +29,8 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title, this.imageService, this.mlService}) : super(key: key);
+  MyHomePage({Key key, this.title, this.imageService, this.mlService})
+      : super(key: key);
 
   final String title;
   final ImageService imageService;
@@ -58,9 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: MenuDrawer(),
       body: Center(
         child: Text(
-                "Take or pick the image :)",
-                style: GoogleFonts.indieFlower(fontSize: Dimens.fontPrimary),
-              ),
+          Strings.mainHint,
+          style: GoogleFonts.indieFlower(fontSize: Dimens.fontPrimary),
+        ),
       ),
       floatingActionButton: Container(
         child: Column(
@@ -69,22 +70,22 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(
               margin: EdgeInsets.only(top: Dimens.standardDistance),
               child: FloatingActionButton(
-                heroTag: 'Photo form library',
+                heroTag: Strings.galleryHint,
                 onPressed: () async {
                   await widget.imageService.pickGallearyImage();
-                  goToPictureHub();
+                  if (widget.imageService.imageFile != null) goToPictureHub();
                 },
-                tooltip: 'Pick photo from library',
+                tooltip: Strings.galleryHint,
                 child: Icon(Icons.photo_library),
               ),
             ),
             FloatingActionButton(
-              heroTag: 'Photo from camera',
+              heroTag: Strings.photoHint,
               onPressed: () async {
                 await widget.imageService.pickCameraImage();
-                goToPictureHub();
+                if (widget.imageService.imageFile != null) goToPictureHub();
               },
-              tooltip: 'Take a photo',
+              tooltip: Strings.photoHint,
               child: Icon(Icons.photo_camera),
             ),
           ],

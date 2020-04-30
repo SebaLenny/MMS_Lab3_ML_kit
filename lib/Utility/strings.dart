@@ -8,4 +8,10 @@ class Strings {
   static String get back => "Back";
   static String get mandatoryField => 'Mandatory field';
   static String get submit => 'Submit';
+  static String get photoHubTitle => 'Choose the ML method';
+  static String get recognizeText => 'Recognize Text';
+  static String get recognizeObjects => 'Recognize Objects';
+  static String get mainHint => 'Take or pick the image :)';
+  static String get photoHint => 'Take or pick the image :)';
+  static String get galleryHint => 'Take or pick the image :)';
 }
